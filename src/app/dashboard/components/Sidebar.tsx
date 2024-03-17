@@ -1,33 +1,35 @@
-import React from 'react'
-import SidebarLink from './SidebarLink'
+import React from "react";
+import AirlinesIcon from "@mui/icons-material/Airlines";
+import Link from "next/link";
+import SidebarLink from "./SidebarLink";
 
 const Sidebar = () => {
   return (
     <aside
-        className='w-80 bg-[#CFD1E0]
-        flex flex-col
-        justify-between items-center'   
+      className="bg-[#CFD1E0]
+          flex flex-col
+          justify-between items-start
+          h-full p-10 gap-20"
     >
 
-        <div className='mt-6 flex flex-col justify-center items-center gap-4'>
-            <div className='w-[130px] h-[130px] bg-white rounded-full'>
-            </div>
+      <div className="h-auto">
+        <AirlinesIcon className="text-8xl"/>
+        <h2 className="font-medium text-4xl">Gestionar vuelos</h2>
+      </div>
 
-            <div className='font-bold text-black text-[20px]'>Gestionar vuelos</div>
-            <SidebarLink buttonName='Ver vuelos' url='/dashboard/see-flights'/>
-            <SidebarLink buttonName='Crear nuevo vuelo' url='/dashboard/new-flight'/>
+      <div className="flex flex-col h-full gap-4">
+        <Link href={"./see-flights"} className="w-60 h-10 rounded-md py-2.5 px-6 hover:bg-zinc-400 font-normal text-sm">Ver vuelos</Link>
+        <Link href={"./new-flight"} className="bg-blue-400 w-60 h-10 rounded-md py-2.5 px-6 text-white font-normal text-sm">Crear nuevo vuelo</Link>
+      </div>
 
-
-        </div>
-
-        <div className='mb-10 mt-6 flex flex-col justify-center items-center gap-4'>
-            <SidebarLink buttonName='Perfil' url='/'/>
-            <SidebarLink buttonName='Cerrar sesión' url='/'/>
-        </div>
+      <div className="flex flex-col h-auto gap-4">
+        <Link href={""} className="w-60 h-10 rounded-md py-2.5 px-6 hover:bg-zinc-400 font-normal text-sm">Perfil</Link>
+        <button className="bg-red-300 w-60 h-10 rounded-md py-2.5 px-6 text-red-700 font-normal text-sm text-start">Cerrar sesión</button>
+      </div>
 
 
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

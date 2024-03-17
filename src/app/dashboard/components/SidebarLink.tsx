@@ -15,7 +15,7 @@ const SidebarLink = ({buttonName, url="#"}: SidebarLinkProps) => {
     const isActive = pathname === url
 
   return (
-    <Link href={url}>
+    <Link href={url} className="bg-gray-900">
         <li className={isActive? "active" : ""}>{buttonName}</li>
     </Link>
   )
