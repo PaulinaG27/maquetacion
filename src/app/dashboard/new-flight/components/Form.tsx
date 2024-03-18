@@ -1,4 +1,5 @@
 "use client";
+import { randomUUID } from 'crypto';
 import React from 'react' 
 import { useState } from 'react';
 
@@ -21,6 +22,7 @@ const Form = () => {
     e.preventDefault(); // Prevents the form from submitting and refreshing the page
     const formData: { [key: string]: string } = {};
     const elements = e.currentTarget.elements;
+    
 
     for (let i = 0; i < elements.length; i++) {
       const element = elements[i] as HTMLInputElement;
@@ -28,7 +30,7 @@ const Form = () => {
     }
 
     const jsonData = JSON.stringify(formData);
-    localStorage.setItem('formData', jsonData);
+    localStorage.setItem(crypto.randomUUID(), jsonData);
 
     if([vuelo,salida,llegada,horaSalida,horaLlegada,aeronave].includes('')){
       setError(true) 
